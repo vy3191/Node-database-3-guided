@@ -1,8 +1,9 @@
 const express = require("express")
+const postRouter = require('../posts/post-router');
 const db = require("../data/config")
 
 const router = express.Router()
-
+router.use("/:id/posts", postRouter);
 router.get("/", async (req, res, next) => {
 	try {
 		res.json(await db("users"))
